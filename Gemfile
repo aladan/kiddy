@@ -28,7 +28,7 @@ gem 'devise', '~> 3.5.3'
 gem 'pry', '~> 0.10.3'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
