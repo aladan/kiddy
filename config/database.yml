@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: 'root'
+  host: localhost
+  username: <%= Rails.application.secrets[:db_user] %>
+  password: <%= Rails.application.secrets[:db_password] %>
   socket: /var/run/mysqld/mysqld.sock
 development:
   <<: *default
   database: kiddy_development
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -45,7 +45,6 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
   database: kiddy_production
