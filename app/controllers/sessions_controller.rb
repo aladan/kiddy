@@ -1,14 +1,10 @@
 class SessionsController < ApplicationController
 
-  def new
-    # @session = Session.new
-  end
-
   def create
-    @user = User.find_by_email(params[:session][:email])
+    @user = Doctor.find_by_email(params[:session][:email]) || Patient.find_by_email(params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to '/users'
+      redirect_to "/#{@user.class.to_s.downcase.pluralize}/#{@user.id}"
     else
       redirect_to 'login'
     end 
