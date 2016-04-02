@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def require_doctor
-    redirect_to '/' unless current_doctor  && current_doctor.doctor?
+    redirect_to '/' unless current_doctor
   end
 
   def require_patient
-    redirect_to '/' unless current_patient && current_patient.patient?
+    redirect_to '/' unless current_patient
   end
 
 end
