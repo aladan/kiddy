@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-4">
+    <%=image_tag @doctor.avatar, size: "300x300"%>
+    <h3><%=@doctor.name + ' ' + @doctor.surname%></h3>
+    <h5><%=@doctor.email%></h5>
+    <h5><%=@doctor.speciality%></h5>
+    <h5><%=@doctor.speciality_description%></h5>
+    <h5>Years of Experience: <%=@doctor.experience_years%></h5>
+
+    <div class="histories">
+      <%=link_to 'Create history', '/histories/new'%>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+    <%@doctor.histories.each do |history|%>
+    <%= history.title%>
+    <%= history.description%>
+    <%end%>
+  </div>
+
+</div>

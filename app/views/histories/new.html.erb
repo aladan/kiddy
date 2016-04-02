@@ -1,0 +1,17 @@
+<div class='container'>
+  <div class='col-md-5'>
+    <h1>Create sickness history</h1>
+
+    <%= form_for @history do |f| %>
+
+      <%= f.label :title %>:
+      <%= f.text_field :title, class: 'form-control' %><br />
+
+      <%= f.label :description %>:
+      <%= f.text_area :description, class: 'form-control' %><br />
+          
+      <%= f.submit "Create", class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+

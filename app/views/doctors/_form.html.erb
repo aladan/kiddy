@@ -1,0 +1,35 @@
+<div class='container'>
+  <div class='col-md-5'>
+    <h1>Sign up as a Doctor</h1>
+
+    <%= form_for @doctor do |f| %>
+
+      <%= f.label :Add_Photo %>:
+      <%= f.file_field :avatar, class: 'btn btn-default' %><br />
+
+      <%= f.label :name %>:
+      <%= f.text_field :name, class: 'form-control' %><br />
+
+      <%= f.label :surname %>:
+      <%= f.text_field :surname, class: 'form-control' %><br />
+
+      <%= f.label :speciality %>:
+      <%= f.text_field :speciality, class: 'form-control' %><br />
+
+      <%= f.label :Speciality_Description %>:
+      <%= f.text_area :speciality_description, class: 'form-control' %><br />
+
+      <%= f.label :Years_of_experience %>:
+      <%= f.select :experience_years, (1..80), class: 'form-control' %><br />
+          
+      <%= f.label :email %>:
+      <%= f.text_field :email, class: 'form-control' %><br />
+          
+      <%= f.label :password %>:
+      <%= f.password_field :password, class: 'form-control' %><br />
+
+      <%= f.submit "Save", class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+
