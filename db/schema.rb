@@ -11,7 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229194240) do
+ActiveRecord::Schema.define(version: 20160319205203) do
+
+  create_table "doctors", force: :cascade do |t|
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "speciality",             limit: 255
+    t.text     "speciality_description", limit: 65535
+    t.integer  "experience_years",       limit: 4
+    t.string   "name",                   limit: 255
+    t.string   "surname",                limit: 255
+    t.string   "email",                  limit: 255
+    t.string   "password_digest",        limit: 255
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "doctor_id",   limit: 4
+    t.integer  "patient_id",  limit: 4
+  end
+
+  add_index "histories", ["doctor_id"], name: "index_histories_on_doctor_id", using: :btree
+  add_index "histories", ["patient_id"], name: "index_histories_on_patient_id", using: :btree
+
+  create_table "patients", force: :cascade do |t|
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "name",            limit: 255
+    t.string   "surname",         limit: 255
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      limit: 255
@@ -20,7 +57,6 @@ ActiveRecord::Schema.define(version: 20160229194240) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.string   "role",            limit: 255
   end
 
 end

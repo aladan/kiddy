@@ -6,12 +6,12 @@
 @import "bootstrap";
 
 body {
-  background-color: #7deaa1;
+  background-color: #99ddff;
 }
 
 .navbar {
   height: 80px;
-  background-color: #1aff66;
+  background-color: #00aaff;
   color: #2e2e1f;
   border: none;
 
@@ -31,16 +31,18 @@ body {
 .container.content {
   margin: 0 auto;
   padding-top: 90px;
-  background-color: #7deaa1;
-  //background-image: url('/images/main.jpg');
-  height: 650px;
+  background-color: #E3F0F0;
 }
 
 
 footer {
   margin: 0 auto;
   height: 70px;
-  background-color: #1aff66;
+  background-color: #00aaff;
   color: #2e2e1f;
   border: none;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
