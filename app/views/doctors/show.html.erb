@@ -15,8 +15,9 @@
 
   <div class="col-md-4">
     <%@doctor.histories.each do |history|%>
-    <%= history.title%>
-    <%= history.description%>
+    <%= link_to history.title, history_path(history) %>
+    <%= truncate(history.description, length: 20)%>
+    <br>
     <%end%>
   </div>
 
