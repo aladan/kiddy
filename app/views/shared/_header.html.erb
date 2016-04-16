@@ -14,7 +14,7 @@
                     <%@user = @current_patient || @current_doctor%>
                     <% if @user %>
                       <ul> 
-                        <li><%= link_to @user.email, "#{@user.id}" %></li> 
+                        <li><%= link_to @user.email, "/#{@user.class.to_s.downcase.pluralize}/#{@user.id}" %></li> 
                         <li><%= link_to "Edit profile", "#{@user.id}" + "/edit" %></li> 
                         <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
                       </ul> 

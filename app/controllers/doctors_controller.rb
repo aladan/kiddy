@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :require_doctor, only: [:index, :show, :edit]
+  helper DoctorsHelper
 
   def index
     @doctors = Doctor.all

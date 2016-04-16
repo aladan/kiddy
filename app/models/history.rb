@@ -3,11 +3,11 @@ class History < ActiveRecord::Base
   belongs_to :patients
 
   def doctor
-    Doctor.find(self.doctor_id)
+    Doctor.find_by(id: self.doctor_id)
   end
 
   def patient
-    Patient.find(self.patient_id)
+    Patient.find_by(id: self.patient_id)
   end
 
 end

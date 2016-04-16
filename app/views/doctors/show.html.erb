@@ -1,11 +1,12 @@
 <div class="container">
   <div class="col-md-4">
     <%=image_tag @doctor.avatar, size: "300x300"%>
-    <h3><%=@doctor.name + ' ' + @doctor.surname%></h3>
+    <h3><%=user_full_name @doctor%></h3>
     <h5><%=@doctor.email%></h5>
     <h5><%=@doctor.speciality%></h5>
     <h5><%=@doctor.speciality_description%></h5>
     <h5>Years of Experience: <%=@doctor.experience_years%></h5>
+
 
     <div class="histories">
       <%=link_to 'Create history', '/histories/new'%>
@@ -13,12 +14,7 @@
 
   </div>
 
-  <div class="col-md-4">
-    <%@doctor.histories.each do |history|%>
-    <%= link_to history.title, history_path(history) %>
-    <%= truncate(history.description, length: 20)%>
-    <br>
-    <%end%>
+  <div class="col-md-6">
+    <%=render partial: 'doctor_history_table'%>
   </div>
-
 </div>
