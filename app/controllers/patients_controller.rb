@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :require_patient, only: [:index, :show]
+  before_action :require_patient, only: [:index, :show, :edit]
 
   def index
     @patients = Patient.all
