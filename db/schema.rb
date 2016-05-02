@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319205203) do
+ActiveRecord::Schema.define(version: 20160416192859) do
 
   create_table "doctors", force: :cascade do |t|
     t.datetime "created_at",                           null: false
@@ -30,12 +30,16 @@ ActiveRecord::Schema.define(version: 20160319205203) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "doctor_id",   limit: 4
-    t.integer  "patient_id",  limit: 4
+    t.string   "title",                   limit: 255
+    t.text     "description",             limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "doctor_id",               limit: 4
+    t.integer  "patient_id",              limit: 4
+    t.string   "attachment_file_name",    limit: 255
+    t.string   "attachment_content_type", limit: 255
+    t.integer  "attachment_file_size",    limit: 4
+    t.datetime "attachment_updated_at"
   end
 
   add_index "histories", ["doctor_id"], name: "index_histories_on_doctor_id", using: :btree
